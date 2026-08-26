@@ -1,0 +1,18 @@
+# ============================================================================
+# deepseek-valley-gate — DSH 低谷时段门禁 bundle patch
+# ============================================================================
+# 本插件强制「仅在 DeepSeek 低谷时段运行 dsh」：
+#   低谷时段（北京时间 00:30–08:30）：正常工作。
+#   高峰时段（其余时间）：拦截一切 LLM 调用，并在 Web 界面显示全屏覆盖层。
+#
+# 安装方式（本地开发，file: 复制安装以保证依赖解析）：
+#   dsh plugin --profile web add file:<本目录绝对路径>
+# 发布后亦可：
+#   dsh plugin --profile web add deepseek-valley-gate
+# 注意：本地开发不要用 link:（junction 会让包内 import @deepseek-ai/* 在
+# realpath 后解析失败）；每次改源码后 remove + add 同步副本。
+# ============================================================================
+
+- insert:
+    - id: deepseek-valley-gate
+      name: deepseek-valley-gate
